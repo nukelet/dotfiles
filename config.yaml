@@ -1,0 +1,46 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: dotfiles
+  ignoreempty: false
+  keepdot: false
+  longkey: false
+  showdiff: false
+  workdir: ~/.config/dotdrop
+dotfiles:
+  f_xinitrc:
+    dst: ~/.xinitrc
+    src: xinitrc
+  f_zshrc:
+    src: zshrc
+    dst: ~/.zshrc
+  d_i3:
+    src: config/i3
+    dst: ~/.config/i3
+  d_i3status:
+    src: config/i3status
+    dst: ~/.config/i3status
+  d_rofi:
+    src: config/rofi
+    dst: ~/.config/rofi
+  f_xresources:
+    src: Xresources
+    dst: ~/.Xresources
+  f_xprofile:
+    src: xprofile
+    dst: ~/.xprofile
+  d_user:
+    src: config/nvim/lua/user
+    dst: ~/.config/nvim/lua/user
+profiles:
+  elpis:
+    dotfiles:
+    - f_zshrc
+    - d_i3
+    - d_i3status
+    - d_rofi
+    - f_xresources
+    - f_xinitrc
+    - f_xprofile
+    - d_user
