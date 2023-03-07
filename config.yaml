@@ -30,9 +30,9 @@ dotfiles:
   f_xprofile:
     src: xprofile
     dst: ~/.xprofile
-  d_user:
-    src: config/nvim/lua/user
-    dst: ~/.config/nvim/lua/user
+  d_nvim:
+    src: config/nvim
+    dst: ~/.config/nvim
 profiles:
   elpis:
     dotfiles:
@@ -43,4 +43,4 @@ profiles:
     - f_xresources
     - f_xinitrc
     - f_xprofile
-    - d_user
+    - d_nvim
