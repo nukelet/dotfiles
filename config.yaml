@@ -44,3 +44,7 @@ profiles:
     - f_xinitrc
     - f_xprofile
     - d_nvim
+  amaurot:
+    dotfiles:
+    - f_zshrc
+    - d_nvim
