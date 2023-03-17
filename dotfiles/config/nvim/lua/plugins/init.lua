@@ -39,15 +39,9 @@ return require('packer').startup(function(use)
     }
 
     use {
-        {
-            "williamboman/mason.nvim",
-        },
-        {
-            "williamboman/mason-lspconfig.nvim",
-        },
-        {
-            "neovim/nvim-lspconfig",
-        }
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
         --[[
     {
         "jose-elias-alvarez/null-ls.nvim",
@@ -58,6 +52,10 @@ return require('packer').startup(function(use)
     --]]
     }
 
+    use {
+        "lervag/vimtex",
+    }
+
     --[[
   require('mason').setup()
   require('mason-lspconfig').setup()
@@ -65,6 +63,18 @@ return require('packer').startup(function(use)
 --]]
     use "ellisonleao/gruvbox.nvim"
     use "lukas-reineke/indent-blankline.nvim"
+
+    use {
+        "folke/which-key.nvim",
+        opt = true,
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 500
+            require("which-key").setup {
+
+            }
+        end
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
