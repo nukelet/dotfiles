@@ -1,3 +1,5 @@
+local mappings = require('mappings')
+
 local options = require('options')
 local plugins = require('plugins')
 
