@@ -35,7 +35,7 @@ return require('packer').startup(function(use)
             "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
         },
-        config = get_config('neo-tree'),
+        config = get_config("neo-tree"),
     }
 
     use {
@@ -64,9 +64,9 @@ return require('packer').startup(function(use)
     use "ellisonleao/gruvbox.nvim"
     use "lukas-reineke/indent-blankline.nvim"
 
+    --[[
     use {
         "folke/which-key.nvim",
-        opt = true,
         config = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 500
@@ -75,7 +75,7 @@ return require('packer').startup(function(use)
             }
         end
     }
-
+    --]]
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
