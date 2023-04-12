@@ -7,7 +7,6 @@ let b:did_myvimtexsettings = 1
 let g:vimtex_view_enabled = 1
 let g:vimtex_view_method = 'zathura'
 
-
 let g:vimtex_compiler_latexmk = {
     \ 'build_dir' : '',
     \ 'callback' : 1,

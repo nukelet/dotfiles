@@ -28,6 +28,13 @@ return require('packer').startup(function(use)
     use 'jiangmiao/auto-pairs'
 
     use {
+        "numToStr/Comment.nvim",
+        config = function()
+            require("Comment").setup()
+        end
+    }
+
+    use {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
         requires = {
@@ -39,43 +46,37 @@ return require('packer').startup(function(use)
     }
 
     use {
+        "akinsho/bufferline.nvim",
+        tag = "v3.*",
+        requires = "nvim-tree/nvim-web-devicons",
+    }
+
+    use {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
-        --[[
-    {
-        "jose-elias-alvarez/null-ls.nvim",
-        requires = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
-    --]]
+        'hrsh7th/nvim-cmp',         -- Autocompletion plugin
+        'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
+        'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
+        'L3MON4D3/LuaSnip',         -- Snippets plugin
     }
 
     use {
         "lervag/vimtex",
     }
 
-    --[[
-  require('mason').setup()
-  require('mason-lspconfig').setup()
-  require('lspconfig').lua_ls.setup {}
---]]
     use "ellisonleao/gruvbox.nvim"
     use "lukas-reineke/indent-blankline.nvim"
 
-    --[[
     use {
         "folke/which-key.nvim",
         config = function()
-            vim.o.timeout = true
-            vim.o.timeoutlen = 500
             require("which-key").setup {
 
             }
         end
     }
-    --]]
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then

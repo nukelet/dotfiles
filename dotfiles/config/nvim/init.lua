@@ -5,11 +5,8 @@ local plugins = require('plugins')
 
 vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
+require("bufferline").setup()
 
-lsp = require('plugins.lsp')
-
---[[
-require('mason').setup()
-require('mason-lspconfig').setup()
-require('lspconfig').lua_ls.setup {}
---]]
+local lsp = require('plugins.lsp')
+local autocommands = require('autocommands')
+-- local snippets = require("snippets")
