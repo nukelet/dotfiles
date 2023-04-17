@@ -13,6 +13,7 @@ map("n", "<leader>e", "<cmd>Neotree toggle<CR>", "Toggle filetree")
 
 map("n", "<S-h>", "<cmd>bp<CR>", "Previous buffer")
 map("n", "<S-l>", "<cmd>bn<CR>", "Next buffer")
+map("n", "<S-c>", "<cmd>bd<CR>", "Close buffer")
 
 
 -- map("n", "<localleader>li", "<Plug>(vimtex-info)<CR>", {desc = "Display info" })
@@ -52,21 +53,7 @@ local function lsp_keymaps(ev)
     map({ "n", "v" }, "<leader>ca", buf.code_action, "Code action", opts)
 end
 
--- TODO: refactor this into Lua?
-local function luasnip_keymaps()
-    vim.cmd [[
-" Use Tab to expand and jump through snippets
-imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
-smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
-
-" Use Shift-Tab to jump backwards through snippets
-imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
-smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
-]]
-end
-
 return {
     vimtex_whichkey = vimtex_whichkey,
     lsp_keymaps = lsp_keymaps,
-    luasnip_keymaps = luasnip_keymaps,
 }

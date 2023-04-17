@@ -9,4 +9,4 @@ require("bufferline").setup()
 
 local lsp = require('plugins.lsp')
 local autocommands = require('autocommands')
--- local snippets = require("snippets")
+local snippets = require("snippets")

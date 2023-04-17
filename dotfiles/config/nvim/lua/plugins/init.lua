@@ -52,13 +52,27 @@ return require('packer').startup(function(use)
     }
 
     use {
+        "nvim-treesitter/nvim-treesitter",
+        run = function()
+            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+            ts_update()
+        end,
+        config = get_config("nvim-treesitter"),
+    }
+
+    use({
+        "L3MON4D3/LuaSnip",
+        tag = "v1.*",
+        run = "make install_jsregexp"
+    })
+
+    use {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
         'hrsh7th/nvim-cmp',         -- Autocompletion plugin
         'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
         'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
-        'L3MON4D3/LuaSnip',         -- Snippets plugin
     }
 
     use {

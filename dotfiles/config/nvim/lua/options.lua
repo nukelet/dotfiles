@@ -23,6 +23,9 @@ opt.clipboard = 'unnamedplus'
 
 opt.updatetime = 250
 
+-- prevents neovim-treesitter from folding everything
+opt.foldenable = false
+
 -- used by which-key
 vim.o.timeout = true
 vim.o.timeoutlen = 500
