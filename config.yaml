@@ -12,6 +12,7 @@ dotfiles:
   f_xinitrc:
     dst: ~/.xinitrc
     src: xinitrc
+    chmod: '744'
   f_zshrc:
     src: zshrc
     dst: ~/.zshrc

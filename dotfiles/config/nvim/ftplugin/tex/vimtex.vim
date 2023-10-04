@@ -6,6 +6,7 @@ let b:did_myvimtexsettings = 1
 
 let g:vimtex_view_enabled = 1
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_view_general_viewer = 'zathura'
 
 let g:vimtex_compiler_latexmk = {
     \ 'build_dir' : '',
@@ -30,5 +31,6 @@ let g:vimtex_quickfix_ignore_filters = [
       \ 'LaTeX hooks Warning',
       \ 'Package siunitx Warning: Detected the "physics" package:',
       \ 'Package hyperref Warning: Token not allowed in a PDF string',
+      \ 'Entry type for',
       \]
 

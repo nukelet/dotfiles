@@ -187,7 +187,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # screenshots
-bindsym Print exec maim -s | xclip -selection clipboard -t image/png
+# bindsym Print exec maim -s | xclip -selection clipboard -t image/png
+bindsym Print exec shotgun $(hacksaw -f "-i %i -g %g") - | xclip -t 'image/png' -selection clipboard
 bindsym $mod+Print exec maim ~/Pictures/screenshots/$(date +%s).png
 bindsym Control+Print exec maim -s ~/Pictures/screenshots/$(date +%s).png
 
