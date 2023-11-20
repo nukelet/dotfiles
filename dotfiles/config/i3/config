@@ -198,7 +198,7 @@ bar {
         status_command i3status
 }
 
-exec_always --no-startup-id setxkbmap br
+exec_always --no-startup-id setxkbmap us
 exec_always --no-startup-id feh --bg-fill ~/Pictures/wallpapers/bg3.jpg
 exec_always --no-startup-id fcitx5 -d
 
@@ -207,3 +207,6 @@ exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 
 # Greeting
 exec_always --no-startup-id notify-send 'Config loaded'
+
+# Open specific apps on startup
+exec --no-startup-id i3-msg 'workspace 9; exec /usr/bin/easyeffects'
