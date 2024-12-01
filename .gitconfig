@@ -1,0 +1,38 @@
+[user]
+	email = vinicius.peixoto@canonical.com
+	name = Vinicius Peixoto
+	signingkey = 6C8DBC3C00771294633E62DA4BE37F1D500CFA5D
+
+[sendemail]
+        from = Vinicius Peixoto <vinicius.peixoto@canonical.com>
+
+        # Required to pass the -t option to msmtp to automatically detect which
+        # account to use if canonical is not your default msmtp account
+        envelopeSender = vinicius.peixoto@canonical.com
+        smtpserver = "/usr/bin/msmtp"
+	confirm = always
+	signedoffbycc = 0
+	cccover = 0
+	tocover = 0
+	chainreplyto = false
+	suppressfrom = true
+	suppresscc = all
+
+[url "git+ssh://vpeixoto@git.launchpad.net/"]
+	pushinsteadof = lp:
+	pushinsteadof = "git://git.launchpad.net/"
+	pushinsteadof = "https://git.launchpad.net/"
+	insteadof = lps:
+	insteadof = "git+ssh://git.launchpad.net/"
+
+# Used for real-time, esm and other private kernels.
+[url "git+ssh://vpeixoto@git.launchpad.net/~canonical-kernel"]
+	insteadof = lp:~canonical-kernel
+	insteadof = git://git.launchpad.net/~canonical-kernel
+
+[url "git://git.launchpad.net/"]
+	insteadof = lp:
+[core]
+	editor = vim
+[init]
+	defaultBranch = main
