@@ -1,0 +1,62 @@
+IMAPAccount lkcamp
+Host imap.purelymail.com
+Port 993
+User vpeixoto@lkcamp.dev
+PassCmd "secret-tool lookup mail lkcamp"
+SSLType IMAPS
+
+IMAPStore lkcamp-remote
+Account lkcamp
+
+MaildirStore lkcamp-local
+Path /home/nuke/mail/lkcamp/
+Inbox /home/nuke/mail/lkcamp/INBOX/
+Subfolders Verbatim
+
+Channel lkcamp-inbox
+Far :lkcamp-remote:
+Near :lkcamp-local:
+Patterns *
+Create Both
+Expunge Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+
+Channel lkcamp-sent
+Far :lkcamp-remote:"Sent"
+Near :lkcamp-local:"sent"
+Create Both
+Expunge Both
+SyncState *
+
+Group lkcamp
+Channel lkcamp-inbox
+Channel lkcamp-sent
+
+
+# IMAPStore vpeixoto@lkcamp.dev-remote
+# Host imap.purelymail.com
+# Port 993
+# User vpeixoto@lkcamp.dev
+# PassCmd "pass vpeixoto@lkcamp.dev"
+# AuthMechs LOGIN
+# SSLType IMAPS
+# CertificateFile /etc/ssl/certs/ca-certificates.crt
+# 
+# MaildirStore vpeixoto@lkcamp.dev-local
+# Subfolders Verbatim
+# Path /home/nuke/.local/share/mail/vpeixoto@lkcamp.dev/
+# Inbox /home/nuke/.local/share/mail/vpeixoto@lkcamp.dev/INBOX
+# 
+# Channel vpeixoto@lkcamp.dev
+# Expunge Both
+# Master :vpeixoto@lkcamp.dev-remote:
+# Slave :vpeixoto@lkcamp.dev-local:
+# Patterns * !"[Gmail]/All Mail"
+# Create Both
+# SyncState *
+# MaxMessages 0
+# ExpireUnread no
+# # End profile
+

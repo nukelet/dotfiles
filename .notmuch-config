@@ -1,0 +1,20 @@
+[database]
+
+path=/home/nuke/mail/lkcamp/
+
+[user]
+name="Vinicius Peixoto"
+primary_email="vpeixoto@lkcamp.dev"
+
+[new]
+#tags=unread;inbox;sent;
+tags=
+ignore=
+
+[search]
+exclude_tags=deleted;spam;
+[maildir]
+synchronize_flags=true
+
+[crypto]
+gpg_path=gpg

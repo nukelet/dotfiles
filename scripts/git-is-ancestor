@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+function print_help {
+	echo "USAGE: git-is-ancestor <ancestor?> <child>"
+}
+
+if [[ $# -ne 2 ]]; then
+	print_help;
+	exit -1;
+fi
+
+echo "checking if $1 is an ancestor of $2";
+if git merge-base --is-ancestor $1 $2; then
+	echo "true";
+else
+	echo "false";
+fi
