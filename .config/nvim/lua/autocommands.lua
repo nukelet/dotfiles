@@ -1,16 +1,16 @@
-if require("which-key") then
-    vim.api.nvim_create_autocmd({ "BufEnter" }, {
-        pattern = { "*.tex" },
-        callback = require("mappings").vimtex_whichkey,
-    })
-end
-
-vim.api.nvim_create_augroup("Packer", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePost", {
-    group = "Packer",
-    pattern = "*/nvim/lua/plugins/init.lua",
-    command = "source <afile> | PackerCompile",
-})
+-- if require("which-key") then
+--     vim.api.nvim_create_autocmd({ "BufEnter" }, {
+--         pattern = { "*.tex" },
+--         callback = require("mappings").vimtex_whichkey,
+--     })
+-- end
+--
+-- vim.api.nvim_create_augroup("Packer", { clear = true })
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--     group = "Packer",
+--     pattern = "*/nvim/lua/plugins/init.lua",
+--     command = "source <afile> | PackerCompile",
+-- })
 
 local function open_diagnostics_if_no_float()
     for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do

@@ -131,15 +131,32 @@ later(function()
         hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
     })
 
-    require("nvim-treesitter.configs").setup {
-        ensure_installed = { "c", "cpp", "lua", "rust", "python", "go", },
+    require('nvim-treesitter.configs').setup {
+        ensure_installed = { 'c', 'cpp', 'lua', 'rust', 'python', 'go', },
         sync_install = false,
         auto_install = true,
 
         highlight = {
             enable = true,
-            disable = { "latex" },
+            disable = { 'latex' },
             additional_vim_regex_highlighting = false,
         }
     }
+end)
+
+-- these are configured separately, inside lua/lsp, in order to
+-- not pollute the main plugin config file
+later(function()
+    add({ source = 'williamboman/mason.nvim' })
+    add({ source = 'williamboman/mason-lspconfig.nvim' })
+    add({ source = 'neovim/nvim-lspconfig' })
+    add({ source = 'hrsh7th/nvim-cmp' })
+    add({ source = 'hrsh7th/cmp-nvim-lsp' })
+    add({ source = 'saadparwaiz1/cmp_luasnip' })
+    add({
+        source = 'L3MON4D3/LuaSnip',
+        checkout = 'v2.3.0',
+        monitor = 'master'
+    })
+    require('plugins.lsp')
 end)

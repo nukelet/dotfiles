@@ -7,7 +7,6 @@ local on_attach = function(client, bufnr)
     })
 end
 
-local installed = { "lua_ls", "pyright", "rust_analyzer" }
 local servers = { "lua_ls", "pyright", "rust_analyzer", "clangd" }
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -38,8 +37,9 @@ lspconfig.lua_ls.setup {
     }
 }
 
+-- TODO: maybe revive this later, too lazy to configure it right now
 -- luasnip setup
-local luasnip = require("luasnip")
+-- local luasnip = require("luasnip")
 
 -- nvim-cmp setup
 local cmp = require("cmp")
