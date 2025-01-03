@@ -146,7 +146,7 @@ end)
 
 -- these are configured separately, inside lua/lsp, in order to
 -- not pollute the main plugin config file
-later(function()
+now(function()
     add({ source = 'williamboman/mason.nvim' })
     add({ source = 'williamboman/mason-lspconfig.nvim' })
     add({ source = 'neovim/nvim-lspconfig' })
