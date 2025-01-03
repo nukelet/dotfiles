@@ -1,0 +1,3 @@
+return {
+  ["mini.nvim"] = "782969a40d2870b1d7cd7c9db8f965d8aa9705ef"
+}

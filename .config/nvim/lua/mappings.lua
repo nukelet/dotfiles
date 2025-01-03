@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local function map(mode, lhs, rhs, desc, opts)
+function map(mode, lhs, rhs, desc, opts)
     local options = { noremap = true, desc = desc }
     if opts then
         options = vim.tbl_extend("force", options, opts)
@@ -9,7 +9,7 @@ local function map(mode, lhs, rhs, desc, opts)
     vim.keymap.set(mode, lhs, rhs, options)
 end
 
-map("n", "<leader>e", "<cmd>Neotree toggle<CR>", "Toggle filetree")
+-- map("n", "<leader>e", MiniFiles.open, "Open MiniFiles")
 
 map("n", "<S-h>", "<cmd>bp<CR>", "Previous buffer")
 map("n", "<S-l>", "<cmd>bn<CR>", "Next buffer")

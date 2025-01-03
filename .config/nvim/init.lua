@@ -1,12 +1,13 @@
-local mappings = require('mappings')
+local mappings = require("mappings")
 
-local options = require('options')
-local plugins = require('plugins')
+local options = require("options")
 
-vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox]])
-require("bufferline").setup()
+local plugins = require("plugins")
 
-local lsp = require('plugins.lsp')
-local autocommands = require('autocommands')
-local snippets = require("snippets")
+-- vim.o.background = "dark" -- or "light" for light mode
+-- vim.cmd([[colorscheme gruvbox]])
+-- require("bufferline").setup()
+
+-- local lsp = require("plugins.lsp")
+-- local autocommands = require("autocommands")
+-- local snippets = require("snippets")

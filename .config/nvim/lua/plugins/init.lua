@@ -1,108 +1,135 @@
--- packer bootstrapping
-local ensure_packer = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-        vim.cmd [[packadd packer.nvim]]
-        return true
-    end
-    return false
+-- Clone 'mini.nvim' manually in a way that it gets managed by 'mini.deps'
+local path_package = vim.fn.stdpath('data') .. '/site/'
+local mini_path = path_package .. 'pack/deps/start/mini.nvim'
+if not vim.loop.fs_stat(mini_path) then
+  vim.cmd('echo "Installing `mini.nvim`" | redraw')
+  local clone_cmd = {
+    'git', 'clone', '--filter=blob:none',
+    'https://github.com/echasnovski/mini.nvim', mini_path
+  }
+  vim.fn.system(clone_cmd)
+  vim.cmd('packadd mini.nvim | helptags ALL')
+  vim.cmd('echo "Installed `mini.nvim`" | redraw')
 end
 
-local packer_bootstrap = ensure_packer()
+-- Set up 'mini.deps' (customize to your liking)
+require('mini.deps').setup({ path = { package = path_package } })
 
-local function get_config(name)
-    return string.format('require(\'plugins/config/%s\')', name)
-end
+-------------------
 
--- Automatically run :PackerCompile whenever plugins.lua is updated with an autocommand:
--- vim.api.nvim_create_autocmd('BufWritePost', { group = vim.api.nvim_create_augroup('PACKER', { clear = true }), pattern = 'plugins.lua', command = 'source <afile> | PackerCompile', })
+-- Use 'mini.deps'. `now()` and `later()` are helpers for a safe two-stage
+-- startup and are optional.
+local add, now, later = MiniDeps.add, MiniDeps.now, MiniDeps.later
 
-return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim'
-    -- My plugins here
-    -- use 'foo1/bar1.nvim'
-    -- use 'foo2/bar2.nvim'
 
-    use 'jiangmiao/auto-pairs'
+now(function()
+    require('mini.notify').setup()
+    vim.notify = require('mini.notify').make_notify()
+end)
 
-    use {
-        "numToStr/Comment.nvim",
-        config = function()
-            require("Comment").setup()
-        end
-    }
+now(function() require('mini.icons').setup() end)
+now(function() require('mini.tabline').setup() end)
+now(function() require('mini.statusline').setup() end)
 
-    use {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
-        requires = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons",
-            "MunifTanjim/nui.nvim",
+later(function() require('mini.ai').setup() end)
+later(function() require('mini.comment').setup() end)
+
+later(function()
+    local miniclue = require('mini.clue')
+    miniclue.setup({
+        triggers = {
+            -- Leader triggers
+            { mode = 'n', keys = '<Leader>' },
+            { mode = 'x', keys = '<Leader>' },
+
+            -- Built-in completion
+            { mode = 'i', keys = '<C-x>' },
+
+            -- `g` key
+            { mode = 'n', keys = 'g' },
+            { mode = 'x', keys = 'g' },
+
+            -- Marks
+            { mode = 'n', keys = "'" },
+            { mode = 'n', keys = '`' },
+            { mode = 'x', keys = "'" },
+            { mode = 'x', keys = '`' },
+
+            -- Registers
+            { mode = 'n', keys = '"' },
+            { mode = 'x', keys = '"' },
+            { mode = 'i', keys = '<C-r>' },
+            { mode = 'c', keys = '<C-r>' },
+
+            -- Window commands
+            { mode = 'n', keys = '<C-w>' },
+
+            -- `z` key
+            { mode = 'n', keys = 'z' },
+            { mode = 'x', keys = 'z' },
         },
-        config = get_config("neo-tree"),
-    }
 
-    use {
-        "akinsho/bufferline.nvim",
-        tag = "v3.*",
-        requires = "nvim-tree/nvim-web-devicons",
-    }
+        clues = {
+            -- Enhance this by adding descriptions for <Leader> mapping groups
+            miniclue.gen_clues.builtin_completion(),
+            miniclue.gen_clues.g(),
+            miniclue.gen_clues.marks(),
+            miniclue.gen_clues.registers(),
+            miniclue.gen_clues.windows(),
+            miniclue.gen_clues.z(),
+        },
+    })
+end)
 
-    use {
-        "nvim-treesitter/nvim-treesitter",
-        run = function()
-            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-            ts_update()
-        end,
-        config = get_config("nvim-treesitter"),
-    }
+later(function() require('mini.pick').setup() end)
+later(function() require('mini.surround').setup() end)
+later(function() require('mini.pairs').setup() end)
+later(function()
+    require('mini.files').setup()
+    vim.keymap.set('n', '<Leader>e', MiniFiles.open)
+end)
 
-    use({
-        "L3MON4D3/LuaSnip",
-        tag = "v1.*",
-        run = "make install_jsregexp"
+later(function()
+    add({
+        source = 'bluz71/vim-moonfly-colors',
     })
 
-    use {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
-        'hrsh7th/nvim-cmp',         -- Autocompletion plugin
-        'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
-        'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
+    vim.cmd [[colorscheme moonfly]]
+end)
+
+later(function()
+    add({
+        source = 'nvim-telescope/telescope.nvim',
+        depends = { 'nvim-lua/plenary.nvim' },
+    })
+
+    require('telescope').setup()
+    local builtin = require('telescope.builtin')
+    vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+    vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+    vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+    vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+end)
+
+later(function()
+    add({
+        source = 'nvim-treesitter/nvim-treesitter',
+        -- Use 'master' while monitoring updates in 'main'
+        checkout = 'master',
+        monitor = 'main',
+        -- Perform action after every checkout
+        hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
+    })
+
+    require("nvim-treesitter.configs").setup {
+        ensure_installed = { "c", "cpp", "lua", "rust", "python", "go", },
+        sync_install = false,
+        auto_install = true,
+
+        highlight = {
+            enable = true,
+            disable = { "latex" },
+            additional_vim_regex_highlighting = false,
+        }
     }
-
-    use {
-        "lervag/vimtex",
-    }
-
-    use "ellisonleao/gruvbox.nvim"
-    use "lukas-reineke/indent-blankline.nvim"
-
-    use {
-        "folke/which-key.nvim",
-        config = function()
-            require("which-key").setup {
-
-            }
-        end
-    }
-
-    use {
-        "iamcco/markdown-preview.nvim",
-        run = "cd app && npm install",
-        setup = function()
-            vim.g.mkdp_filetypes = { "markdown" }
-        end,
-        ft = { "markdown" },
-    }
-
-    -- Automatically set up your configuration after cloning packer.nvim
-    -- Put this at the end after all plugins
-    if packer_bootstrap then
-        require('packer').sync()
-    end
 end)
