@@ -7,6 +7,10 @@ opt.expandtab = true -- enable the use of space in tab
 opt.tabstop = 8      -- make actual tabs visually look like 8 whitespaces
 opt.softtabstop = 0
 
+-- renders leading tabs/spaces
+opt.list = true
+opt.listchars = { lead = '·', tab = '→ ' }
+
 opt.preserveindent = true -- preserve indentation as much as possible
 opt.copyindent = true     -- copy previous indentation on autoindenting
 

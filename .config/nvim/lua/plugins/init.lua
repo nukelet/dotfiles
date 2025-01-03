@@ -99,6 +99,16 @@ end)
 
 later(function()
     add({
+        source = 'lukas-reineke/indent-blankline.nvim'
+    })
+
+    require('ibl').setup({
+        scope = { enabled = false },
+    })
+end)
+
+later(function()
+    add({
         source = 'nvim-telescope/telescope.nvim',
         depends = { 'nvim-lua/plenary.nvim' },
     })
