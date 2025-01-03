@@ -108,7 +108,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # dotfile management stuff
-alias dotfiles-git='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias dg='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 # Add cranky tools to the PATH and enable auto-completion
 export PATH=$HOME/canonical/kteam-tools/cranky:$PATH
