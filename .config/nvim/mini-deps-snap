@@ -1,3 +1,15 @@
 return {
-  ["mini.nvim"] = "782969a40d2870b1d7cd7c9db8f965d8aa9705ef"
+  LuaSnip = "03c8e67eb7293c404845b3982db895d59c0d1538",
+  ["cmp-nvim-lsp"] = "99290b3ec1322070bcfb9e846450a46f6efa50f0",
+  cmp_luasnip = "98d9cb5c2c38532bd9bdb481067b20fea8f32e90",
+  ["indent-blankline.nvim"] = "259357fa4097e232730341fa60988087d189193a",
+  ["mason-lspconfig.nvim"] = "c6c686781f9841d855bf1b926e10aa5e19430a38",
+  ["mason.nvim"] = "e2f7f9044ec30067bc11800a9e266664b88cda22",
+  ["mini.nvim"] = "782969a40d2870b1d7cd7c9db8f965d8aa9705ef",
+  ["nvim-cmp"] = "b555203ce4bd7ff6192e759af3362f9d217e8c89",
+  ["nvim-lspconfig"] = "88dff6268a068403c87b461aee69beb61ceb8303",
+  ["nvim-treesitter"] = "6cb4098d51479f644f967c17d4482bab1ba2640f",
+  ["plenary.nvim"] = "2d9b06177a975543726ce5c73fca176cedbffe9d",
+  ["telescope.nvim"] = "2eca9ba22002184ac05eddbe47a7fe2d5a384dfc",
+  ["vim-moonfly-colors"] = "b5d91ed970c037e849c60a05f800c7e1cd9b2952"
 }
