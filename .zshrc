@@ -110,6 +110,9 @@ source $ZSH/oh-my-zsh.sh
 # dotfile management stuff
 alias dg='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
+# saving 3 characters is absoluteley necessary bro trust me
+alias v='nvim'
+
 # Add cranky tools to the PATH and enable auto-completion
 export PATH=$HOME/canonical/kteam-tools/cranky:$PATH
 export PATH=$HOME/canonical/kteam-tools/maintscripts:$PATH
