@@ -8,8 +8,6 @@ tls on
 tls_trust_file /etc/ssl/certs/ca-certificates.crt
 logfile ~/.msmtp.log
 
-# Use the config below if you opted-in for gmail
-
 account canonical
 protocol smtp
 host smtp.gmail.com
@@ -20,28 +18,12 @@ domain canonical.com
 user vinicius.peixoto@canonical.com
 passwordeval "secret-tool lookup mail canonical"
 
-# Use the config below if you opted-out of gmail and use the company mail
-# server instead
-
-# account canonical
-# host smtp.canonical.com
-# port 465
-# auth on
-# user your_smtp_user
-# passwordeval "secret-tool lookup mail canonical"
-# from first.last@canonical.com
-
-# Set default account to canonical (optional)
-account default : canonical
-account vpeixoto@lkcamp.dev
+account lkcamp
 host smtp.purelymail.com
 port 465
 from vpeixoto@lkcamp.dev
 user vpeixoto@lkcamp.dev
-passwordeval "pass vpeixoto@lkcamp.dev"
-auth on
-tls on
-tls_trust_file	/etc/ssl/certs/ca-certificates.crt
-logfile /home/nuke/.config/msmtp/msmtp.log
-tls_starttls off
+passwordeval "secret-tool lookup mail lkcamp"
 
+# Set default account to canonical (optional)
+account default : canonical
