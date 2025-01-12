@@ -1,14 +1,15 @@
 [database]
 
-path=/home/nuke/mail/lkcamp/
+path=/home/nuke/mail/
 
 [user]
 name="Vinicius Peixoto"
 primary_email="vpeixoto@lkcamp.dev"
+other_email="vinicius.peixoto@canonical.com"
 
 [new]
 #tags=unread;inbox;sent;
-tags=
+tags=new
 ignore=
 
 [search]

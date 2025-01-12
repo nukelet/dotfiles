@@ -1,0 +1,26 @@
+[SpamFilter]
+[KillThreadsFilter]
+
+[FolderNameFilter]
+folder_lowercases = true
+maildir_separator = /
+
+[HeaderMatchingFilter.1]
+header = List-Id
+pattern = <linux-kselftest\.vger\.kernel\.org>
+tags = +lists;+linux-kselftest;
+
+[HeaderMatchingFilter.2]
+header = List-Id
+pattern = <linux-riscv\.lists\.infradead\.org>
+tags = +lists;+linux-riscv;
+
+[HeaderMatchingFilter.3]
+header = List-Id
+pattern = <rust-for-linux\.vger\.kernel\.org>
+tags = +lists;+rust-for-linux;
+
+[HeaderMatchingFilter.4]
+header = List-Id
+pattern = <asahi\.lists\.linux\.dev>
+tags = +lists;+asahi;
