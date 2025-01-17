@@ -4,7 +4,7 @@
 defaults
 auth on
 tls on
-# tls_starttls off
+tls_starttls off
 tls_trust_file /etc/ssl/certs/ca-certificates.crt
 logfile ~/.msmtp.log
 
@@ -19,9 +19,11 @@ user vinicius.peixoto@canonical.com
 passwordeval "secret-tool lookup mail canonical"
 
 account lkcamp
+protocol smtp
 host smtp.purelymail.com
 port 465
 from vpeixoto@lkcamp.dev
+maildomain lkcamp.dev
 user vpeixoto@lkcamp.dev
 passwordeval "secret-tool lookup mail lkcamp"
 
