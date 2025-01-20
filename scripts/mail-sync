@@ -13,4 +13,4 @@ notmuch search --format=text0 --output=files tag:deleted | xargs -0 --no-run-if-
 
 mbsync -Va
 notmuch new
-afew tag --tag --new
+afew --tag --new
