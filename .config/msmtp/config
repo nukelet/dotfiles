@@ -11,7 +11,7 @@ logfile ~/.msmtp.log
 account canonical
 protocol smtp
 host smtp.gmail.com
-port 587
+port 465
 from vinicius.peixoto@canonical.com
 maildomain canonical.com
 domain canonical.com
