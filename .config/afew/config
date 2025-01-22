@@ -24,3 +24,5 @@ tags = +lists;+rust-for-linux;
 header = List-Id
 pattern = <asahi\.lists\.linux\.dev>
 tags = +lists;+asahi;
+
+[InboxFilter]

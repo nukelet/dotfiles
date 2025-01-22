@@ -7,8 +7,9 @@ After=network.target
 
 [Service]
 Restart=always
-RestartSec=30
-ExecStart=/usr/bin/goimapnotify -conf %h/.config/goimapnotify/%i.conf
+RestartSec=300
+ExecStartPre=%h/scripts/mail-sync
+ExecStart=/usr/bin/goimapnotify -conf %h/.config/goimapnotify/%i.yaml
 
 [Install]
 WantedBy=default.target

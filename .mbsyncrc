@@ -1,3 +1,43 @@
+# IMAPAccount lkcamp
+# Host imap.purelymail.com
+# Port 993
+# User vpeixoto@lkcamp.dev
+# PassCmd "secret-tool lookup mail lkcamp"
+# SSLType IMAPS
+# CertificateFile /etc/ssl/certs/ca-certificates.crt
+# AuthMechs LOGIN
+# 
+# IMAPStore lkcamp-remote
+# Account lkcamp
+# 
+# MaildirStore lkcamp-local
+# Path /home/nuke/mail/lkcamp/
+# Inbox /home/nuke/mail/lkcamp/INBOX/
+# Subfolders Verbatim
+# 
+# Channel lkcamp-inbox
+# Far :lkcamp-remote:
+# Near :lkcamp-local:
+# Patterns *
+# Create Both
+# Expunge Both
+# SyncState *
+# MaxMessages 0
+# ExpireUnread no
+# 
+# Channel lkcamp-sent
+# Far :lkcamp-remote:"Sent"
+# Near :lkcamp-local:"sent"
+# Create Both
+# Expunge Both
+# SyncState *
+# 
+# Group lkcamp
+# Channel lkcamp-inbox
+# Channel lkcamp-sent
+
+#######################################
+
 IMAPAccount lkcamp
 Host imap.purelymail.com
 Port 993
@@ -11,30 +51,20 @@ IMAPStore lkcamp-remote
 Account lkcamp
 
 MaildirStore lkcamp-local
-Path /home/nuke/mail/lkcamp/
-Inbox /home/nuke/mail/lkcamp/INBOX/
-Subfolders Verbatim
+SubFolders Verbatim
+Path ~/mail/lkcamp/
+Inbox ~/mail/lkcamp/Inbox
 
-Channel lkcamp-inbox
+Channel lkcamp
 Far :lkcamp-remote:
 Near :lkcamp-local:
 Patterns *
+# Automatically create missing mailboxes, both locally and on the server
 Create Both
+# Sync the movement of messages between folders and deletions, add after making sure the sync works
 Expunge Both
+# Save the synchronization state files in the relevant directory
 SyncState *
-MaxMessages 0
-ExpireUnread no
-
-Channel lkcamp-sent
-Far :lkcamp-remote:"Sent"
-Near :lkcamp-local:"sent"
-Create Both
-Expunge Both
-SyncState *
-
-Group lkcamp
-Channel lkcamp-inbox
-Channel lkcamp-sent
 
 #######################################
 
