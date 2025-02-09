@@ -33,6 +33,6 @@
 [url "git://git.launchpad.net/"]
 	insteadof = lp:
 [core]
-	editor = vim
+	editor = nvim
 [init]
 	defaultBranch = main
