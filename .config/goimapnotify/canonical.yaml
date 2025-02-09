@@ -1,0 +1,16 @@
+configurations:
+    -
+        host: imap.gmail.com
+        port: 993
+        tls: true
+        tlsOptions:
+            rejectUnauthorized: false
+            starttls: false
+        username: 'vinicius.peixoto@canonical.com'
+        passwordCMD: 'secret-tool lookup mail canonical'
+        xoAuth2: false
+        boxes:
+            -
+                mailbox: INBOX
+                onNewMail: '/usr/bin/mbsync -c /home/nuke/.mbsyncrc -V canonical'
+                onNewMailPost: '/usr/bin/notmuch --config=/home/nuke/.notmuch-config new'

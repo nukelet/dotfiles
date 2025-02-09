@@ -1,0 +1,16 @@
+configurations:
+    -
+        host: imap.purelymail.com
+        port: 993
+        tls: true
+        tlsOptions:
+            rejectUnauthorized: false
+            starttls: false
+        username: 'vpeixoto@lkcamp.dev'
+        passwordCMD: 'secret-tool lookup mail lkcamp'
+        xoAuth2: false
+        boxes:
+            -
+                mailbox: INBOX
+                onNewMail: '/usr/bin/mbsync -c /home/nuke/.mbsyncrc -V lkcamp'
+                onNewMailPost: '/usr/bin/notmuch --config=/home/nuke/.notmuch-config new'
