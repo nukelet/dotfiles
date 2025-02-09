@@ -15,7 +15,7 @@ ignore=
 [search]
 exclude_tags=deleted;spam;
 [maildir]
-synchronize_flags=true
+synchronize_flags=false
 
 [crypto]
 gpg_path=gpg
