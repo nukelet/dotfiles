@@ -64,7 +64,7 @@ function filter()
     results:move_messages(canonical["Jira"])
 
     -- kteam-tools
-    results = canonical.INBOX:contain_from("noreply+ckctreview-bot@canonical.com")
+    results = canonical.INBOX:contain_from("noreply+forgejo-bot@canonical.com")
     results:move_messages(canonical["kteam-tools"])
 
     -- Launchpad
