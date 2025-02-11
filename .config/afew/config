@@ -25,4 +25,9 @@ header = List-Id
 pattern = <asahi\.lists\.linux\.dev>
 tags = +lists;+asahi;
 
+[HeaderMatchingFilter.5]
+header = List-Id
+pattern = <spacemit\.lists\.linux\.dev>
+tags = +lists;+spacemit;
+
 [InboxFilter]
