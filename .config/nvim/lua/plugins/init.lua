@@ -30,6 +30,15 @@ end)
 now(function() require('mini.icons').setup() end)
 now(function() require('mini.tabline').setup() end)
 now(function() require('mini.statusline').setup() end)
+-- now(function()
+--     -- write session hook
+--     local ws = require('mini.sessions').write()
+--     require('mini.sessions').setup({
+--         hooks = { post = { read = ws, write = ws, delete = ws } },
+--         autoread = true,
+--         autowrite = true,
+--     })
+-- end)
 
 later(function() require('mini.ai').setup() end)
 later(function() require('mini.comment').setup() end)
@@ -107,7 +116,7 @@ later(function()
     })
 end)
 
-later(function()
+now(function()
     add({
         source = 'nvim-telescope/telescope.nvim',
         depends = { 'nvim-lua/plenary.nvim' },
@@ -119,6 +128,17 @@ later(function()
     vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
     vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+    add({ source = 'olimorris/persisted.nvim' })
+    require('persisted').setup({
+        autostart = true,
+        autoload = true,
+        use_git_branch = true,
+        on_autoload_no_session = function()
+            vim.notify("No existing session to load.")
+        end
+    })
+    require('telescope').load_extension('persisted')
 end)
 
 later(function()
