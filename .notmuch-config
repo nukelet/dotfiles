@@ -9,7 +9,7 @@ other_email="vinicius.peixoto@canonical.com"
 
 [new]
 #tags=unread;inbox;sent;
-tags=new
+tags=new;inbox;unread;
 ignore=
 
 [search]

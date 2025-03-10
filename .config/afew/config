@@ -30,4 +30,34 @@ header = List-Id
 pattern = <spacemit\.lists\.linux\.dev>
 tags = +lists;+spacemit;
 
+[HeaderMatchingFilter.50]
+header = List-Id
+pattern = <kernel-team\.lists\.ubuntu\.com>
+tags = +kernel-team;
+
+[HeaderMatchingFilter.51]
+header = List-Id
+pattern = <canonical-kernel-esm\.lists\.canonical\.com>
+tags = +canonical-kernel-esm;
+
+[HeaderMatchingFilter.52]
+header = List-Id
+pattern = <canonical-kernel-team\.lists\.canonical\.com>
+tags = +canonical-kernel-team;
+
+[HeaderMatchingFilter.53]
+header = From
+pattern = <noreply+forgejo-bot@canonical\.com>
+tags = +forgejo;
+
+[LaunchpadFilter]
+
 [InboxFilter]
+
+[MailMover]
+folders = canonical/Inbox
+rename = True
+max_age = 30
+
+# rules
+canonical/Inbox = 'tag:launchpad-spam':canonical/lp-spam
