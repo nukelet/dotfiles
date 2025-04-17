@@ -50,7 +50,7 @@ header = From
 pattern = forgejo-bot@canonical\.com
 tags = +forgejo;
 
-[HeaderMatchingFilter.53]
+[HeaderMatchingFilter.54]
 header = From
 pattern = jira@warthogs.atlassian.net
 tags = +jira;
