@@ -31,24 +31,29 @@ pattern = <spacemit\.lists\.linux\.dev>
 tags = +lists;+spacemit;
 
 [HeaderMatchingFilter.50]
-header = List-Id
-pattern = <kernel-team\.lists\.ubuntu\.com>
-tags = +kernel-team;
+header = To
+pattern = kernel-team@lists\.ubuntu\.com
+tags = +ktml;
 
 [HeaderMatchingFilter.51]
-header = List-Id
-pattern = <canonical-kernel-esm\.lists\.canonical\.com>
-tags = +canonical-kernel-esm;
+header = To
+pattern = canonical-kernel-esm@lists\.canonical\.com
+tags = +ktml-esm;
 
 [HeaderMatchingFilter.52]
-header = List-Id
-pattern = <canonical-kernel-team\.lists\.canonical\.com>
-tags = +canonical-kernel-team;
+header = To
+pattern = canonical-kernel-team@lists\.canonical\.com
+tags = +kernel-team;
 
 [HeaderMatchingFilter.53]
 header = From
-pattern = <noreply+forgejo-bot@canonical\.com>
+pattern = forgejo-bot@canonical\.com
 tags = +forgejo;
+
+[HeaderMatchingFilter.53]
+header = From
+pattern = jira@warthogs.atlassian.net
+tags = +jira;
 
 [LaunchpadFilter]
 
