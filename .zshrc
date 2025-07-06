@@ -121,6 +121,9 @@ source $HOME/canonical/kteam-tools/cranky/cranky-complete.bash
 # Add personal scripts to PATH
 export PATH=$HOME/scripts:$PATH
 
+# Add oss-cad-suite to PATH
+export PATH=$HOME/toolchains/oss-cad-suite/bin:$PATH
+
 # Helper to call debian/rules quickly
 alias fdr="fakeroot debian/rules"
 
