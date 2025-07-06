@@ -44,7 +44,7 @@ exec swayidle -w \
 
 ### Input configuration
 
-input "1452:833:Apple_Internal_Keyboard_/_Trackpad" {
+input "1452:833:Apple_SPI_Trackpad" {
     tap disabled
     natural_scroll disabled
     dwt disabled
