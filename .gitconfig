@@ -30,6 +30,11 @@
 	insteadof = lp:~canonical-kernel
 	insteadof = git://git.launchpad.net/~canonical-kernel
 
+[url "git+ssh://vpeixoto@git.launchpad.net/~canonical-kernel-esm/"]
+    insteadof = lp:~canonical-kernel-esm
+    insteadof = git://git.launchpad.net/~canonical-kernel-esm/
+    insteadof = https://git.launchpad.net/~canonical-kernel-esm/
+
 [url "git://git.launchpad.net/"]
 	insteadof = lp:
 [core]
