@@ -26,8 +26,8 @@ include /etc/sway/config-vars.d/*
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Swa'swaylock -f -c 000000' \'swaylock -f -c 000000' \y_Wallpaper_Blue_1920x1080.png fill
-output * bg /home/nuke/wallpapers/mhach.jpg fill
-output eDP-1 scale 1.75
+output * bg /home/nuke/wallpapers/untilthen.jpg fit
+output eDP-1 scale 1.7
 
 ### Idle/lock configuration
 
