@@ -134,3 +134,6 @@ eval $(keychain --eval --quiet id_rsa)
 
 # Instl.sh installer binary location
 export PATH=/home/nuke/.local/bin:$PATH
+
+# riscv toolchain
+export PATH=/opt/riscv/bin:$PATH
