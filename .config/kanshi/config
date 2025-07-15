@@ -1,0 +1,4 @@
+profile {
+    output "LG Electronics LG ULTRAGEAR 409AZRD05614" mode 2560x1440@164.956Hz position 0,888 transform normal
+    output "LG Electronics LG ULTRAWIDE 0x01010101" mode 2560x1080@60.000Hz position 2560,0 transform 270
+}
