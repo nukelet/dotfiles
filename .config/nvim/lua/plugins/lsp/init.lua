@@ -5,12 +5,13 @@ require('mason').setup()
 require('mason-lspconfig').setup()
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local lspconfig = require("lspconfig")
+-- local lspconfig = require("lspconfig")
 for _, lsp in ipairs(servers) do
-    lspconfig[lsp].setup {
+    vim.lsp.config(lsp, {
         capabilities = capabilities,
-    }
+    })
 end
+vim.lsp.enable(servers)
 
 -- lspconfig.lua_ls.setup {
 --     on_attach = on_attach,

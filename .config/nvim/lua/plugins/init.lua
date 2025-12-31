@@ -93,8 +93,11 @@ end)
 later(function() require('mini.pick').setup() end)
 later(function() require('mini.surround').setup() end)
 later(function() require('mini.pairs').setup() end)
+later(function() require('mini.surround').setup() end)
 later(function()
-    require('mini.files').setup()
+    require('mini.files').setup({
+        options = {permanent_delete = false, },
+    })
     vim.keymap.set('n', '<Leader>e', MiniFiles.open)
 end)
 
@@ -117,6 +120,12 @@ later(function()
 end)
 
 now(function()
+    add({
+        source = 'pteroctopus/faster.nvim',
+    })
+
+    require('faster').setup()
+
     add({
         source = 'nvim-telescope/telescope.nvim',
         depends = { 'nvim-lua/plenary.nvim' },
@@ -159,7 +168,7 @@ later(function()
         highlight = {
             enable = true,
             disable = { 'latex' },
-            additional_vim_regex_highlighting = false,
+            additional_vim_regex_highlighting = { "python", },
         }
     }
 end)
