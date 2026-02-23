@@ -172,6 +172,10 @@ later(function()
     })
 end)
 
+later(function()
+    add({ source = 'lewis6991/gitsigns.nvim' })
+end)
+
 -- these are configured separately, inside lua/lsp, in order to
 -- not pollute the main plugin config file
 now(function()
