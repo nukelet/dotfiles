@@ -55,6 +55,11 @@ header = From
 pattern = jira@warthogs.atlassian.net
 tags = +jira;
 
+[HeaderMatchingFilter.55]
+header = To
+pattern = kernel-esm-reviews@groups.canonical.com
+tags = +ktml-esm;
+
 [LaunchpadFilter]
 
 [InboxFilter]
