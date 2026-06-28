@@ -4,7 +4,7 @@ opt.smarttab = true  -- intelligently use the tab key to insert whitespaces
 opt.shiftwidth = 4   -- tabs insert 4 whitespaces
 opt.expandtab = true -- enable the use of space in tab
 
-opt.tabstop = 8      -- make actual tabs visually look like 8 whitespaces
+opt.tabstop = 4      -- make actual tabs visually look like 4 whitespaces
 opt.softtabstop = 0
 
 -- renders leading tabs/spaces

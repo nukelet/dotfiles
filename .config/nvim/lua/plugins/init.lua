@@ -93,7 +93,6 @@ end)
 later(function() require('mini.pick').setup() end)
 later(function() require('mini.surround').setup() end)
 later(function() require('mini.pairs').setup() end)
-later(function() require('mini.surround').setup() end)
 later(function()
     require('mini.files').setup({
         options = {permanent_delete = false, },
@@ -154,23 +153,23 @@ later(function()
     add({
         source = 'nvim-treesitter/nvim-treesitter',
         -- Use 'master' while monitoring updates in 'main'
-        checkout = 'master',
+        checkout = 'main',
         monitor = 'main',
         -- Perform action after every checkout
         hooks = { post_checkout = function() vim.cmd('TSUpdate') end },
     })
 
-    require('nvim-treesitter.configs').setup {
-        ensure_installed = { 'c', 'cpp', 'lua', 'rust', 'python', 'go', },
-        sync_install = false,
-        auto_install = true,
-
-        highlight = {
-            enable = true,
-            disable = { 'latex' },
-            additional_vim_regex_highlighting = { "python", },
-        }
-    }
+    local treesitter = require("nvim-treesitter")
+    local langs = { 'c', 'cpp', 'lua', 'rust', 'python', 'go', 'yaml' }
+    treesitter.setup()
+    treesitter.install(langs)
+    vim.api.nvim_create_autocmd('FileType', {
+        pattern = langs,
+        callback = function()
+            vim.treesitter.start()
+            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end
+    })
 end)
 
 -- these are configured separately, inside lua/lsp, in order to
