@@ -145,3 +145,5 @@ export PATH=/home/nuke/.local/bin:$PATH
 
 # riscv toolchain
 export PATH=/opt/riscv/bin:$PATH
+
+export PATH=/home/nuke/.cargo/bin:$PATH
