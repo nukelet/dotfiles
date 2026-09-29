@@ -43,3 +43,5 @@
 	defaultBranch = main
 [mergetool]
 	keepBackup = false
+[extensions]
+    worktreeConfig = true
