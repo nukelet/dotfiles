@@ -138,7 +138,7 @@ export PATH=$HOME/toolchains/oss-cad-suite/bin:$PATH
 alias fdr="fakeroot debian/rules"
 
 # Keyring for SSH keys
-eval $(keychain --eval --quiet id_rsa)
+eval $(keychain --eval --quiet id_rsa id_ed25519)
 
 # Instl.sh installer binary location
 export PATH=/home/nuke/.local/bin:$PATH
