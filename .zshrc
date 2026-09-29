@@ -113,10 +113,20 @@ alias dg='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 # saving 3 characters is absoluteley necessary bro trust me
 alias v='nvim'
 
-# Add cranky tools to the PATH and enable auto-completion
-export PATH=$HOME/canonical/kteam-tools/cranky:$PATH
-export PATH=$HOME/canonical/kteam-tools/maintscripts:$PATH
-source $HOME/canonical/kteam-tools/cranky/cranky-complete.bash
+. /etc/os-release
+
+if [ $ID = "ubuntu" ]; then
+    # Add cranky tools to the PATH and enable auto-completion
+    export PATH=$HOME/canonical/kteam-tools/cranky:$PATH
+    export PATH=$HOME/canonical/kteam-tools/maintscripts:$PATH
+    source $HOME/canonical/kteam-tools/cranky/cranky-complete.bash
+
+    # Set shell variables so various Debian maintenance tools know your real name
+    # and email address to use for packages
+    export DEBEMAIL="vinicius.peixoto@canonical.com"
+    export DEBFULLNAME="Vinicius Peixoto"
+fi
+
 
 # Add personal scripts to PATH
 export PATH=$HOME/scripts:$PATH
@@ -126,11 +136,6 @@ export PATH=$HOME/toolchains/oss-cad-suite/bin:$PATH
 
 # Helper to call debian/rules quickly
 alias fdr="fakeroot debian/rules"
-
-# Set shell variables so various Debian maintenance tools know your real name
-# and email address to use for packages
-export DEBEMAIL="vinicius.peixoto@canonical.com"
-export DEBFULLNAME="Vinicius Peixoto"
 
 # Keyring for SSH keys
 eval $(keychain --eval --quiet id_rsa)
