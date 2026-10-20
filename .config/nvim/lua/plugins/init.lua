@@ -176,6 +176,25 @@ later(function()
     add({ source = 'lewis6991/gitsigns.nvim' })
 end)
 
+later(function()
+    add({
+        source = 'brianhuster/live-preview.nvim',
+        depends = {
+            'nvim-telescope/telescope.nvim',
+        },
+    })
+
+    require('livepreview.config').set({
+        address = '0.0.0.0',
+    })
+end)
+
+later(function()
+    add({
+        source = 'mrcjkb/rustaceanvim',
+    })
+end)
+
 -- these are configured separately, inside lua/lsp, in order to
 -- not pollute the main plugin config file
 now(function()
