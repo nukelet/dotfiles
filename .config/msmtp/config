@@ -12,6 +12,7 @@ account canonical
 protocol smtp
 host smtp.gmail.com
 port 465
+from_full_name "Vinicius Peixoto"
 from vinicius.peixoto@canonical.com
 maildomain canonical.com
 domain canonical.com
