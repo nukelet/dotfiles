@@ -125,8 +125,15 @@ if [ $ID = "ubuntu" ]; then
     # and email address to use for packages
     export DEBEMAIL="vinicius.peixoto@canonical.com"
     export DEBFULLNAME="Vinicius Peixoto"
-fi
 
+    # stable-tools stuff
+    export PATH="${HOME}/canonical/kteam-tools/stable:${PATH}"
+    export PATH="${HOME}/canonical/kteam-tools/git-tools:${PATH}"
+    export PATH="${HOME}/canonical/stable-tools:${PATH}"
+
+    # klp-lgtm
+    export PATH="${HOME}/canonical/klp-lgtm:${PATH}"
+fi
 
 # Add personal scripts to PATH
 export PATH=$HOME/scripts:$PATH
@@ -146,4 +153,11 @@ export PATH=/home/nuke/.local/bin:$PATH
 # riscv toolchain
 export PATH=/opt/riscv/bin:$PATH
 
+# cargo stuff
 export PATH=/home/nuke/.cargo/bin:$PATH
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
+
+export EDITOR=nvim
