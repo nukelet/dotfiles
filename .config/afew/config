@@ -31,18 +31,18 @@ pattern = <spacemit\.lists\.linux\.dev>
 tags = +lists;+spacemit;
 
 [HeaderMatchingFilter.50]
-header = To
-pattern = kernel-team@lists\.ubuntu\.com
+header = List-Id
+pattern = <kernel-team\.lists\.ubuntu\.com>
 tags = +ktml;
 
 [HeaderMatchingFilter.51]
-header = To
-pattern = canonical-kernel-esm@lists\.canonical\.com
+header = List-Id
+pattern = <canonical-kernel-esm\.lists\.canonical\.com>
 tags = +ktml-esm;
 
 [HeaderMatchingFilter.52]
-header = To
-pattern = canonical-kernel-team@lists\.canonical\.com
+header = List-Id
+pattern = <canonical-kernel-team\.lists\.canonical\.com>
 tags = +kernel-team;
 
 [HeaderMatchingFilter.53]
@@ -56,7 +56,7 @@ pattern = jira@warthogs.atlassian.net
 tags = +jira;
 
 [HeaderMatchingFilter.55]
-header = To
+header = List-Id
 pattern = kernel-esm-reviews@groups.canonical.com
 tags = +ktml-esm;
 
